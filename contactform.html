@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Finance | Auto Finance Group</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Apply for vehicle finance with Auto Finance Group. Fast approvals and flexible finance options." />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- JS -->
+  <script defer src="js/main.js"></script>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Auto Finance Group</div>
+
+      <button class="hamburger" id="hamburger">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Vehicles</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contactform.html">Apply</a></li>
+        <li><a href="policies.html">Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= CONTACT FORM ================= -->
+  <section class="section">
+    <h1>Apply for Vehicle Finance</h1>
+    <p>
+      Complete the form below and one of our consultants will contact you.
+      All information is kept strictly confidential.
+    </p>
+
+    <form name="vehicle-finance-application"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field">
+
+      <!-- Netlify required hidden fields -->
+      <input type="hidden" name="form-name" value="vehicle-finance-application" />
+      <input type="hidden" name="bot-field" />
+
+      <input type="text" name="full_name" placeholder="Full Name" required />
+
+      <input type="email" name="email" placeholder="Email Address" required />
+
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+
+      <input type="text" name="monthly_income" placeholder="Monthly Income (R)" required />
+
+      <select name="credit_status" required>
+        <option value="">Select Credit Status</option>
+        <option value="good">Good</option>
+        <option value="low">Low Credit Score</option>
+        <option value="blacklisted">Blacklisted</option>
+        <option value="debt_review">Under Debt Review</option>
+      </select>
+
+      <textarea
+        name="message"
+        rows="5"
+        placeholder="Additional Information (optional)">
+      </textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#catalog">Vehicles</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Email: info@autofinancegroup.co.za</p>
+      <p>Cell / WhatsApp: 078 942 5468</p>
+    </div>
+            <p>&copy; 2025 AutoFinance Pro. All rights reserved. Cape Town, South Africa.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
