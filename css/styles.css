@@ -1,41 +1,54 @@
-/* ================= GLOBAL STYLES ================= */
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --navy: #001f3f;       /* Deep Navy */
+  --light-blue: #3a86ff; /* Primary Light Blue */
+  --bg-light: #f4f7f9;   /* Light grayish-blue background */
+  --white: #ffffff;
+  --text-dark: #1a202c;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --radius: 12px;
+}
+
+/* ================= GLOBAL RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 body {
-  background: #f5f5f5;
-  color: #222;
+  background-color: var(--bg-light) !important;
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* ================= NAVBAR (Navy) ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Ensuring background is Navy and NOT transparent */
+  background-color: var(--navy) !important; 
+  box-shadow: var(--shadow);
 }
 
-ul {
-  list-style: none;
-}
-
-/* ================= NAVBAR ================= */
 .navbar {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #000;
-  color: #fff;
-  position: relative;
-  z-index: 1000;
+  background-color: var(--navy); /* Explicitly set */
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--white) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .nav-links {
@@ -44,206 +57,178 @@ ul {
 }
 
 .nav-links a {
-  color: #fff;
-  transition: color 0.3s;
+  color: #e2e8f0 !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: #ffcc00;
+  color: var(--light-blue) !important;
 }
 
+/* Hamburger toggle for mobile */
 .hamburger {
   display: none;
+  font-size: 1.8rem;
   background: none;
-  color: #fff;
-  font-size: 2rem;
   border: none;
+  color: var(--white);
   cursor: pointer;
 }
 
-/* ================= SECTIONS ================= */
-.section {
-  padding: 3rem 1.5rem;
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
-}
 
-.section h1, .section h2, .section h3 {
-  margin-bottom: 1rem;
-  color: #000;
-}
 
-.section p {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
 
+/* Hero/Section Images (Index.html) */
 .section img {
+  display: block;
   width: 100%;
-  max-width: 700px;
-  border-radius: 8px;
-  margin-top: 1rem;
+  max-width: 700px; /* Reduced to keep it from taking over the screen */
+  height: auto;
+  margin: 2rem auto; /* Centers the image and adds vertical space */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-/* ================= CATALOG GRID & CARDS ================= */
+/* Catalog Grid Images (Catalog.html) */
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .card {
-  background: #fff;
+  background: var(--white);
+  border-radius: var(--radius);
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border-bottom: 4px solid var(--light-blue); /* Subtle accent */
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
+/* Specific fix for images inside catalog cards */
 .card img {
   width: 100%;
-  border-radius: 6px;
-}
-
-.card h3 {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: #000;
-}
-
-.card p {
-  margin-top: 0.5rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.card button {
-  margin-top: 0.8rem;
-  width: 100%;
-  padding: 0.6rem;
-  background: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.card button:hover {
-  background: #ffcc00;
-  color: #000;
-}
-
-/* ================= FORMS ================= */
-form {
-  background: #fff;
-  padding: 2rem;
+  height: 200px;
+  object-fit: cover; /* Ensures car photos aren't stretched */
+  margin: 0 0 1rem 0; /* Resets the centered margin from the general section img */
   border-radius: 8px;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-input, textarea, select {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-textarea {
-  resize: vertical;
-}
-
+/* ================= BUTTONS (Light Blue) ================= */
+button, 
+.card button, 
 button[type="submit"] {
-  width: 100%;
-  background: #000;
-  color: #fff;
-  padding: 0.8rem;
+  background-color: var(--light-blue) !important;
+  color: white !important;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  width: 100%;
+  transition: 0.3s ease;
 }
 
-button[type="submit"]:hover {
-  background: #ffcc00;
-  color: #000;
+button:hover {
+  background-color: var(--navy) !important;
+  transform: translateY(-2px);
 }
 
-/* ================= FOOTER ================= */
+
+
+/* ================= FOOTER (Navy) ================= */
 footer {
-  background: #000;
-  color: #fff;
-  padding: 2rem;
+  /* Ensuring footer is Navy and NOT white */
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
+  padding: 3rem 1.5rem;
   text-align: center;
-  margin-top: 3rem;
-  font-size: 0.9rem;
+  margin-top: 4rem;
 }
 
-/* ================= LISTS ================= */
-ul li, ol li {
+footer a {
+  color: var(--light-blue) !important;
+  text-decoration: none;
+}
+
+footer h4 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
   margin-bottom: 0.5rem;
-  text-align: left;
 }
 
-/* ================= MEDIA QUERIES (RESPONSIVE) ================= */
-@media (max-width: 1024px) {
-  .section {
-    padding: 2rem 1rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
+/* ================= BUTTONS (Light Blue) ================= */
+button, 
+.card button, 
+button[type="submit"] {
+  background-color: var(--light-blue) !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
 }
 
+button:hover {
+  background-color: #2a75e6 !important;
+  transform: translateY(-2px);
+}
+
+/* ================= MOBILE NAV LOGIC ================= */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .nav-links {
-    display: none;
+    display: none; /* Hidden by default */
     flex-direction: column;
-    background: #000;
-    width: 100%;
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
-    text-align: center;
+    width: 100%;
+    background-color: var(--navy) !important; /* Matches Navbar */
+    padding: 2rem;
+    box-shadow: var(--shadow);
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* Opens on toggle */
   }
 
   .nav-links li {
-    margin: 1rem 0;
+    margin: 10px 0;
+    text-align: center;
   }
 }
+  .section {
+    padding: 3rem 1.2rem;
+  }
+
 
 @media (max-width: 480px) {
   .section h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .section h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .card h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
