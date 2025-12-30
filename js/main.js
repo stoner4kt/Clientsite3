@@ -1,18 +1,20 @@
-// ================= NAVBAR HAMBURGER =================
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
 
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});
+  // Toggle Menu
+  hamburger.addEventListener("click", (e) => {
+    navLinks.classList.toggle("active");
+    // Change icon between Menu and Close
+    hamburger.innerHTML = navLinks.classList.contains("active") ? "✕" : "☰";
+    e.stopPropagation();
+  });
 
-// ================= OPTIONAL: SMOOTH SCROLL FOR INTERNAL LINKS =================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if(target){
-      target.scrollIntoView({ behavior: "smooth" });
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      navLinks.classList.remove("active");
+      hamburger.innerHTML = "☰";
     }
   });
 });
